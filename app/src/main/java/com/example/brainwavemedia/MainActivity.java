@@ -285,23 +285,44 @@ import java.util.TimerTask;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        if(RawData==+-10+Avg) {
+                        for(double i =Avg-10;i<Avg+10;i++){
+                         if(RawData==Avg) {
                             Log.e("Direction:East", String.valueOf(+RawData));
-                            showToast("Direction :East"+RawData,Toast.LENGTH_SHORT);
+                            showToast("Direction :East" + RawData, Toast.LENGTH_SHORT);
+                            break;
                         }
-                        else if(RawData==+-10+Avg1) {
+                         else{
+                             continue;
+                            }
+                        }
+                        for(double i =Avg1-10;i<Avg1+10;i++){
+                        if(RawData==Avg1) {
                             Log.e("Direction:North", String.valueOf(+RawData));
                             showToast("Direction:North"+RawData,Toast.LENGTH_SHORT);
+                            break;
+                        }else{
+                            continue;
+                            }
                         }
-
-                        else if(RawData==+-10+Avg2) {
+                        for(double i =Avg2-10;i<Avg2+10;i++){
+                         if(RawData==Avg2) {
                             Log.e("Direction:South", String.valueOf(+RawData));
                             showToast("Direction:South"+RawData,Toast.LENGTH_SHORT);
+                            break;
+
+                        }else{
+
+                            }
+                        }for(double i =Avg3-10;i<Avg3+10;i++){
+                            if(RawData==Avg3){
+                                Log.e("Direction:West",String.valueOf(+RawData));
+                                showToast("Direction:West"+RawData,Toast.LENGTH_SHORT);
+                                break;
+                            }else{
+                                continue;
+                            }
                         }
-                        else{
-                            Log.e("Direction:West",String.valueOf(+RawData));
-                            showToast("Direction:West"+RawData,Toast.LENGTH_SHORT);
-                        }
+
                     }
                 });
 
