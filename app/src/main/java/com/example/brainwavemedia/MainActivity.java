@@ -46,6 +46,7 @@ import java.util.TimerTask;
     private TextView connectionStatus;
 
     private double RawData=0;
+    double Avg,Avg1,Avg2,Avg3;
 
     private int eyeclosed =0 ;
     double sum=0D;
@@ -165,7 +166,8 @@ import java.util.TimerTask;
                     @Override
                     public void run() {
                         RawData= v+v1+v2+v3+v4 ;
-                        showToast("RawData :"+RawData,Toast.LENGTH_SHORT);
+
+
 
                         EastStream = getResources().openRawResource(R.raw.seast);
                         NorthStream = getResources().openRawResource(R.raw.snorth);
@@ -185,12 +187,7 @@ import java.util.TimerTask;
                                     sum = sum + Double.parseDouble(data[1].toString());
                                     a++;
                                     if (a == 100) {
-                                        double Avg=sum/100;
-                                        if(RawData==+-10+Avg){
-                                            Log.e("Direction:", String.valueOf(+RawData));
-
-                                        }
-
+                                        Avg=sum/100;
 
 
                                         a = 0;
@@ -216,8 +213,8 @@ import java.util.TimerTask;
                                     sum=sum + Double.parseDouble(data1[1].toString());
                                     a++;
 
-                                    if(a==10){
-                                        double Avg1=sum/100;
+                                    if(a==100){
+                                        Avg1=sum/100;
                                         Log.e("NorthAvg","Average of 10Data :" +Avg1);
 
                                         a=0;
@@ -233,6 +230,7 @@ import java.util.TimerTask;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+
                         BufferedReader reader2 = new BufferedReader(new InputStreamReader(SouthStream));
 
                         try{
@@ -244,8 +242,8 @@ import java.util.TimerTask;
                                     sum=sum + Double.parseDouble(data2[1].toString());
                                     a++;
 
-                                    if(a==10){
-                                        double Avg2=sum/10;
+                                    if(a==100){
+                                        Avg2=sum/100;
                                         Log.e("SouthAvg","Average of 10Data :" +Avg2);
                                         a=0;
                                         sum=0D;
@@ -271,9 +269,9 @@ import java.util.TimerTask;
                                     sum=sum + Double.parseDouble(data3[1].toString());
                                     a++;
 
-                                    if(a==10){
-                                        double Avg3=sum/10;
-                                        Log.e("WestAvg","Average of 10Data :" +Avg3);
+                                    if(a==100){
+                                        Avg3=sum/100;
+
                                         a=0;
                                         sum=0D;
                                     }
@@ -286,6 +284,23 @@ import java.util.TimerTask;
 
                         } catch (Exception e) {
                             e.printStackTrace();
+                        }
+                        if(RawData==+-10+Avg) {
+                            Log.e("Direction:East", String.valueOf(+RawData));
+                            showToast("Direction :East"+RawData,Toast.LENGTH_SHORT);
+                        }
+                        else if(RawData==+-10+Avg1) {
+                            Log.e("Direction:North", String.valueOf(+RawData));
+                            showToast("Direction:North"+RawData,Toast.LENGTH_SHORT);
+                        }
+
+                        else if(RawData==+-10+Avg2) {
+                            Log.e("Direction:South", String.valueOf(+RawData));
+                            showToast("Direction:South"+RawData,Toast.LENGTH_SHORT);
+                        }
+                        else{
+                            Log.e("Direction:West",String.valueOf(+RawData));
+                            showToast("Direction:West"+RawData,Toast.LENGTH_SHORT);
                         }
                     }
                 });
