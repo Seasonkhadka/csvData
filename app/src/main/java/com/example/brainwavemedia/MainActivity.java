@@ -286,7 +286,7 @@ import java.util.TimerTask;
                             e.printStackTrace();
                         }
                         for(double i =Avg-10;i<Avg+10;i++){
-                         if(RawData==Avg) {
+                         if(RawData==i) {
                             Log.e("Direction:East", String.valueOf(+RawData));
                             showToast("Direction :East" + RawData, Toast.LENGTH_SHORT);
                             break;
@@ -296,7 +296,7 @@ import java.util.TimerTask;
                             }
                         }
                         for(double i =Avg1-10;i<Avg1+10;i++){
-                        if(RawData==Avg1) {
+                        if(RawData==i) {
                             Log.e("Direction:North", String.valueOf(+RawData));
                             showToast("Direction:North"+RawData,Toast.LENGTH_SHORT);
                             break;
@@ -305,16 +305,16 @@ import java.util.TimerTask;
                             }
                         }
                         for(double i =Avg2-10;i<Avg2+10;i++){
-                         if(RawData==Avg2) {
+                         if(RawData==i) {
                             Log.e("Direction:South", String.valueOf(+RawData));
                             showToast("Direction:South"+RawData,Toast.LENGTH_SHORT);
                             break;
 
                         }else{
-
+                            continue;
                             }
                         }for(double i =Avg3-10;i<Avg3+10;i++){
-                            if(RawData==Avg3){
+                            if(RawData==i){
                                 Log.e("Direction:West",String.valueOf(+RawData));
                                 showToast("Direction:West"+RawData,Toast.LENGTH_SHORT);
                                 break;
